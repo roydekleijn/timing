@@ -25,7 +25,7 @@ function __Profiler() {
 /**
  * The order of the events is important,
  * store it here.
- */
+
 __Profiler.prototype.eventsOrder = [
   'navigationStart', 'redirectStart', 'redirectStart',
   'redirectEnd', 'fetchStart', 'domainLookupStart',
@@ -36,6 +36,8 @@ __Profiler.prototype.eventsOrder = [
   'domContentLoadedEventEnd', 'domContentLoaded', 'domComplete',
   'loadEventStart', 'loadEventEnd'
 ];
+*/
+__Profiler.prototype.eventsOrder = ["responseEnd", "responseStart", "requestStart", "secureConnectionStart", "connectEnd", "connectStart", "domainLookupEnd", "domainLookupStart", "fetchStart", "redirectEnd", "redirectStart", "initiatorType", "duration", "startTime", "entryType", "name"];
 
 /**
  * CSS strings for various parts of the chart
