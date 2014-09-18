@@ -295,8 +295,9 @@ __Profiler.prototype._drawBar = function(mode, canvas, barWidth, options) {
 		//context.fillRect(Math.round(this.unit * sectionStart), 2, Math.round(this.unit * (sectionStop - sectionStart)), this.barHeight - 4);
 
 		// event marker
+		// x, y, width, height
 		context.fillStyle = 'rgb(' + color[0] + ',' + color[1] + ',' + color[2] + ')';
-		context.fillRect(Math.round(this.unit * start), 2, 450, this.barHeight - 4);
+		context.fillRect(Math.round(this.unit * start), 2, 650, this.barHeight - 4);
 		
 		context.fillStyle = 'rgb(' + color[0] + ',' + color[1] + ',' + color[2] + ')';
 		context.fillRect(Math.round(this.unit * 1000), 2, 50, this.barHeight - 4);
