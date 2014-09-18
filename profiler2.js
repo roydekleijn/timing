@@ -43,7 +43,7 @@ __Profiler.prototype.eventsOrder = ["redirectStart", "redirectEnd", "fetchStart"
 /**
  * CSS strings for various parts of the chart
  */
-__Profiler.prototype.cssReset = 'font-size:12px;line-height:1em;z-index:99999;text-align:left;' + 'font-family:Calibri,\'Lucida Grande\',Arial,sans-serif;text-shadow:none;box-' + 'shadow:none;display:inline-block;color:#444;font-' + 'weight:normal;border:none;margin:0;padding:0;background:none;';
+__Profiler.prototype.cssReset = 'overflow:scroll;font-size:12px;line-height:1em;z-index:99999;text-align:left;' + 'font-family:Calibri,\'Lucida Grande\',Arial,sans-serif;text-shadow:none;box-' + 'shadow:none;display:inline-block;color:#444;font-' + 'weight:normal;border:none;margin:0;padding:0;background:none;';
 
 __Profiler.prototype.elementCss = 'position:fixed;margin:0 auto;top:' + '0;left:0;right:0;border-bottom:solid 1px #EFCEA1;box-shadow:0 2px 5px rgba(0,0,0,.1);';
 
