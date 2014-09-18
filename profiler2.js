@@ -317,32 +317,33 @@ __Profiler.prototype._drawChart = function(canvas) {
 	context.font = this.fontStyle;
 
 	this._setUnit(canvas);
-
-	for (var i = 0, l = this.eventsOrder.length; i < l; i++) {
-		var evt = this.eventsOrder[i];
-
-		if (!this.timingData[0].hasOwnProperty(evt)) {
-			continue;
-		}
-
-		var item = this.timingData[0][evt];
-		var startIndex = evt.indexOf('Start');
-		var isBlockStart = startIndex > -1;
-		var hasBlockEnd = false;
-
-		if (isBlockStart) {
-			eventName = evt.substr(0, startIndex);
-			hasBlockEnd = this.eventsOrder.indexOf(eventName + 'End') > -1;
-		}
-
-		if (isBlockStart && hasBlockEnd) {
-			item.label = eventName;
-			item.timeEnd = this.timingData[0][eventName + 'End'].time;
-			drawFns.push(this._prepareDraw(canvas, 'block', item));
-			skipEvents.push(eventName + 'End');
-		} else if (skipEvents.indexOf(evt) < 0) {
-			item.label = evt;
-			drawFns.push(this._prepareDraw(canvas, 'point', item));
+	for (var j = 0, k = timingData.length; j < k; j++) {
+		for (var i = 0, l = this.eventsOrder.length; i < l; i++) {
+			var evt = this.eventsOrder[i];
+	
+			if (!this.timingData[j].hasOwnProperty(evt)) {
+				continue;
+			}
+	
+			var item = this.timingData[j][evt];
+			var startIndex = evt.indexOf('Start');
+			var isBlockStart = startIndex > -1;
+			var hasBlockEnd = false;
+	
+			if (isBlockStart) {
+				eventName = evt.substr(0, startIndex);
+				hasBlockEnd = this.eventsOrder.indexOf(eventName + 'End') > -1;
+			}
+	
+			if (isBlockStart && hasBlockEnd) {
+				item.label = timingData[j]['name'];//eventName;
+				item.timeEnd = this.timingData[j][eventName + 'End'].time;
+				drawFns.push(this._prepareDraw(canvas, 'block', item));
+				skipEvents.push(eventName + 'End');
+			} else if (skipEvents.indexOf(evt) < 0) {
+				item.label = evt;
+				drawFns.push(this._prepareDraw(canvas, 'point', item));
+			}
 		}
 	}
 
