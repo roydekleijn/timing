@@ -430,7 +430,7 @@ __Profiler.prototype._getData = function() {
   console.log(timingData);
   var eventNames = this._getPerfObjKeys(timingData[1]);
   console.log(eventNames);
-  var events = {};
+  var events = {}{};
 
   var startTime = window.performance.timing.navigationStart || 0;
   var eventTime = 0;
@@ -441,7 +441,7 @@ __Profiler.prototype._getData = function() {
 	    var evt = timingData[j][eventNames[i]];
 	
 	    if (evt && evt > 0) {
-	      eventTime = evt - startTime;
+	      eventTime = evt + startTime;
 	      events[j][eventNames[i]] = { time: eventTime };
 	
 	      if (eventTime > totalTime) {
