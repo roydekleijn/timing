@@ -426,7 +426,7 @@ __Profiler.prototype._getData = function() {
   }
   
   var data = window.performance;
-  var timingData = data.timing;
+  var timingData = data.getEntriesByType('resource');
   console.log(timingData);
   var eventNames = this._getPerfObjKeys(timingData);
   var events = {};
