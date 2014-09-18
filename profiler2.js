@@ -344,6 +344,7 @@ __Profiler.prototype._drawChart = function(canvas) {
 			hasBlockEnd = this.eventsOrder.indexOf(eventName + 'End') > -1;
 		}
 
+		/*
 		if (isBlockStart && hasBlockEnd) {
 			item.label = item['name'];
 			//eventName;
@@ -354,6 +355,7 @@ __Profiler.prototype._drawChart = function(canvas) {
 			item.label = item['name'];
 			drawFns.push(this._prepareDraw(canvas, 'point', item));
 		}
+		*/
 
 	}
 	canvas.height = this.spacing * this.barHeight * drawFns.length;
