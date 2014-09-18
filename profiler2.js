@@ -20,6 +20,7 @@ function __Profiler() {
 
 	this.timingData = [];
 	this.sections = [];
+	this.eventSize;
 };
 
 /**
@@ -317,7 +318,7 @@ __Profiler.prototype._drawChart = function(canvas) {
 	context.font = this.fontStyle;
 
 	this._setUnit(canvas);
-	for (var j = 0, k = this.timingData.length; j < k; j++) {
+	for (var j = 0; j < this.eventSize; j++) {
 		for (var i = 0, l = this.eventsOrder.length; i < l; i++) {
 			var evt = this.eventsOrder[i];
 	
@@ -419,8 +420,8 @@ __Profiler.prototype._getData = function() {
 	var startTime = window.performance.timing.navigationStart || 0;
 	var eventTime = 0;
 	var totalTime = 0;
-
-	for (var j = 0, k = timingData.length; j < k; j++) {
+	this.eventSize = timingData.length;
+	for (var j = 0; j < this.eventSize; j++) {
 		events[j] = {};
 		events[j]['name'] = timingData[j]['name'];
 		events[j]['duration'] = timingData[j]['duration'];
