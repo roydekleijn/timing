@@ -342,7 +342,7 @@ __Profiler.prototype._drawChart = function(canvas) {
 				drawFns.push(this._prepareDraw(canvas, 'block', item));
 				skipEvents.push(eventName + 'End');
 			} else if (skipEvents.indexOf(evt) < 0) {
-				item.label = evt;
+				item.label = item['name'];
 				drawFns.push(this._prepareDraw(canvas, 'point', item));
 			}
 		}
