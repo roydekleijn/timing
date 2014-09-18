@@ -290,7 +290,7 @@ __Profiler.prototype._drawBar = function(mode, canvas, barWidth, options) {
 		// section bar
 		context.shadowColor = 'white';
 		context.fillStyle = 'rgba(' + color[0] + ',' + color[1] + ',' + color[2] + ',.2)';
-		context.fillRect(Math.round(this.unit * sectionStart), 2, Math.round(this.unit * (sectionStop - sectionStart)), this.barHeight - 4);
+		//context.fillRect(Math.round(this.unit * sectionStart), 2, Math.round(this.unit * (sectionStop - sectionStart)), this.barHeight - 4);
 
 		// event marker
 		context.fillStyle = 'rgb(' + color[0] + ',' + color[1] + ',' + color[2] + ')';
