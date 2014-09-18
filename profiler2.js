@@ -426,27 +426,29 @@ __Profiler.prototype._getData = function() {
   }
   
   var data = window.performance;
-  var timingData = data.timing;//getEntriesByType('resource');
+  var timingData = data.getEntriesByType('resource');
   console.log(timingData);
-  var eventNames = this._getPerfObjKeys(timingData);
+  var eventNames = this._getPerfObjKeys(timingData[1]);
   console.log(eventNames);
   var events = {};
 
-  var startTime = timingData.navigationStart || 0;
+  var startTime = window.performance.timing.navigationStart || 0;
   var eventTime = 0;
   var totalTime = 0;
     
-  for(var i = 0, l = eventNames.length; i < l; i++) {
-    var evt = timingData[eventNames[i]];
-
-    if (evt && evt > 0) {
-      eventTime = evt - startTime;
-      events[eventNames[i]] = { time: eventTime };
-
-      if (eventTime > totalTime) {
-        totalTime = eventTime;
-      }
-    }
+  for(var j = 0, k = timingData.length; j < k; j++) {
+	  for(var i = 0, l = eventNames.length; i < l; i++) {
+	    var evt = timingData[j][eventNames[i]];
+	
+	    if (evt && evt > 0) {
+	      eventTime = evt - startTime;
+	      events[j][eventNames[i]] = { time: eventTime };
+	
+	      if (eventTime > totalTime) {
+	        totalTime = eventTime;
+	      }
+	    }
+	  }
   }
 
   this.totalTime = totalTime;
