@@ -445,7 +445,7 @@ __Profiler.prototype._getData = function() {
 	  for(var i = 0, l = eventNames.length; i < l; i++) {
 	    var evt = timingData[j][eventNames[i]];
 	
-	    if ((evt && evt > 0) evt != 'duration') {
+	    if ((evt && evt > 0) && evt != 'duration') {
 	      eventTime = evt + startTime;
 	      
 	      events[j][eventNames[i]] = { time: eventTime };
