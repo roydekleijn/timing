@@ -326,7 +326,7 @@ __Profiler.prototype._drawChart = function(canvas) {
 				continue;
 			}
 	
-			var item = this.timingData[j][evt];
+			var item = this.timingData[j];
 			var startIndex = evt.indexOf('Start');
 			var isBlockStart = startIndex > -1;
 			var hasBlockEnd = false;
