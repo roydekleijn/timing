@@ -361,9 +361,12 @@ __Profiler.prototype._drawChart = function(canvas) {
 	
 		}
 		// NEW
+		//item.label = item['name'];
+		//drawFns.push(this._prepareDraw(canvas, 'block', item));
+	}
+	// NEW
 		item.label = item['name'];
 		drawFns.push(this._prepareDraw(canvas, 'block', item));
-	}
 	canvas.height = this.spacing * this.barHeight * drawFns.length;
 
 	// setting canvas height resets font, has to be re-set
