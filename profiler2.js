@@ -438,6 +438,7 @@ __Profiler.prototype._getData = function() {
     
   for(var j = 0, k = timingData.length; j < k; j++) {
   	events[j]= {};
+  	events[j]['name'] = timingData[j]['name'];
 	  for(var i = 0, l = eventNames.length; i < l; i++) {
 	    var evt = timingData[j][eventNames[i]];
 	
