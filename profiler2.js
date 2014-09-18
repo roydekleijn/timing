@@ -332,11 +332,11 @@ __Profiler.prototype._drawChart = function(canvas) {
 		for (var i = 0, l = this.eventsOrder.length; i < l; i++) {
 			var evt = this.eventsOrder[i];
 	
-			if (!this.timingData[3].hasOwnProperty(evt)) {
+			if (!this.timingData[j].hasOwnProperty(evt)) {
 				continue;
 			}
 	
-			item = this.timingData[3];
+			item = this.timingData[j];
 			var startIndex = evt.indexOf('Start');
 			var isBlockStart = startIndex > -1;
 			var hasBlockEnd = false;
