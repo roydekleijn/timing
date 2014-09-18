@@ -8,7 +8,7 @@ function __Profiler() {
 
 	this.barHeight = 18;
 	this.timeLabelWidth = 50;
-	this.nameLabelWidth = 160;
+	this.nameLabelWidth = 360;
 	this.textSpace = this.timeLabelWidth + this.nameLabelWidth;
 	this.spacing = 1.2;
 	this.unit = 1;
