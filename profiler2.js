@@ -213,6 +213,7 @@ __Profiler.prototype._createChart = function() {
  * @param {Object} eventData Additional event information.
  */
 __Profiler.prototype._prepareDraw = function(canvas, mode, eventData) {
+	console.log(eventData);
 	var sectionData = this.sections[eventData.sectionIndex];
 
 	var barOptions = {
