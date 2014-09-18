@@ -299,10 +299,10 @@ __Profiler.prototype._drawBar = function(mode, canvas, barWidth, options) {
 		context.fillRect(Math.round(this.unit * start), 2, 450, this.barHeight - 4);
 		
 		context.fillStyle = 'rgb(' + color[0] + ',' + color[1] + ',' + color[2] + ')';
-		context.fillRect(Math.round(this.unit * 500), 2, 50, this.barHeight - 4);
+		context.fillRect(Math.round(this.unit * 1000), 2, 50, this.barHeight - 4);
 		
 		context.fillStyle = 'rgb(' + color[0] + ',' + color[1] + ',' + color[2] + ')';
-		context.fillRect(Math.round(this.unit * 600), 2, 100, this.barHeight - 4);
+		context.fillRect(Math.round(this.unit * 1600), 2, 100, this.barHeight - 4);
 
 		// label
 		context.fillText(timeLabel, barWidth - this.textSpace + 10, 2 * this.barHeight / 3);
