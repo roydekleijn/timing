@@ -327,6 +327,7 @@ __Profiler.prototype._drawChart = function(canvas) {
 
 	this._setUnit(canvas);
 	//for (var j = 0; j < this.eventSize; j++) {
+		var item;
 	for (var i = 0, l = this.eventsOrder.length; i < l; i++) {
 		var evt = this.eventsOrder[i];
 
@@ -334,7 +335,7 @@ __Profiler.prototype._drawChart = function(canvas) {
 			continue;
 		}
 
-		var item = this.timingData[3];
+		item = this.timingData[3];
 		var startIndex = evt.indexOf('Start');
 		var isBlockStart = startIndex > -1;
 		var hasBlockEnd = false;
@@ -358,6 +359,10 @@ __Profiler.prototype._drawChart = function(canvas) {
 		*/
 
 	}
+	// NEW
+	item.label = item['name'];
+	drawFns.push(this._prepareDraw(canvas, 'block', item));
+	
 	canvas.height = this.spacing * this.barHeight * drawFns.length;
 
 	// setting canvas height resets font, has to be re-set
