@@ -322,11 +322,11 @@ __Profiler.prototype._drawChart = function(canvas) {
 		for (var i = 0, l = this.eventsOrder.length; i < l; i++) {
 			var evt = this.eventsOrder[i];
 	
-			if (!this.timingData[4].hasOwnProperty(evt)) {
+			if (!this.timingData[3].hasOwnProperty(evt)) {
 				continue;
 			}
 	
-			var item = this.timingData[4];
+			var item = this.timingData[3];
 			var startIndex = evt.indexOf('Start');
 			var isBlockStart = startIndex > -1;
 			var hasBlockEnd = false;
@@ -338,7 +338,7 @@ __Profiler.prototype._drawChart = function(canvas) {
 	
 			if (isBlockStart && hasBlockEnd) {
 				item.label = item['name'];//eventName;
-				item.timeEnd = this.timingData[4][eventName + 'End'].time;
+				item.timeEnd = this.timingData[3][eventName + 'End'].time;
 				drawFns.push(this._prepareDraw(canvas, 'block', item));
 				skipEvents.push(eventName + 'End');
 			} else if (skipEvents.indexOf(evt) < 0) {
