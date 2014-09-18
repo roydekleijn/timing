@@ -20,7 +20,7 @@ function __Profiler() {
 
 	this.timingData = [];
 	this.sections = [];
-	this.eventSize;
+	this.eventSize
 };
 
 /**
@@ -320,45 +320,46 @@ __Profiler.prototype._drawChart = function(canvas) {
 
 	this._setUnit(canvas);
 	//for (var j = 0; j < this.eventSize; j++) {
-		for (var i = 0, l = this.eventsOrder.length; i < l; i++) {
-			var evt = this.eventsOrder[i];
-	
-			if (!this.timingData[3].hasOwnProperty(evt)) {
-				continue;
-			}
-	
-			var item = this.timingData[3];
-			var startIndex = evt.indexOf('Start');
-			var isBlockStart = startIndex > -1;
-			var hasBlockEnd = false;
-	
-			if (isBlockStart) {
-				eventName = evt.substr(0, startIndex);
-				hasBlockEnd = this.eventsOrder.indexOf(eventName + 'End') > -1;
-			}
-	
-			if (isBlockStart && hasBlockEnd) {
-				item.label = item['name'];//eventName;
-				item.timeEnd = this.timingData[3][eventName + 'End'].time;
-				drawFns.push(this._prepareDraw(canvas, 'block', item));
-				skipEvents.push(eventName + 'End');
-			} else if (skipEvents.indexOf(evt) < 0) {
-				item.label = item['name'];
-				drawFns.push(this._prepareDraw(canvas, 'point', item));
-			}
+	for (var i = 0, l = this.eventsOrder.length; i < l; i++) {
+		var evt = this.eventsOrder[i];
 
+		if (!this.timingData[3].hasOwnProperty(evt)) {
+			continue;
 		}
-			canvas.height = this.spacing * this.barHeight * drawFns.length;
-		
-			// setting canvas height resets font, has to be re-set
-			context.font = this.fontStyle;
-		
-			var step = Math.round(this.barHeight * this.spacing);
-		
-			drawFns.forEach(function(draw) {
-				draw.call(this, context);
-				context.translate(0, step);
-			}, this);
+
+		var item = this.timingData[3];
+		var startIndex = evt.indexOf('Start');
+		var isBlockStart = startIndex > -1;
+		var hasBlockEnd = false;
+
+		if (isBlockStart) {
+			eventName = evt.substr(0, startIndex);
+			hasBlockEnd = this.eventsOrder.indexOf(eventName + 'End') > -1;
+		}
+
+		if (isBlockStart && hasBlockEnd) {
+			item.label = item['name'];
+			//eventName;
+			item.timeEnd = this.timingData[3][eventName + 'End'].time;
+			drawFns.push(this._prepareDraw(canvas, 'block', item));
+			skipEvents.push(eventName + 'End');
+		} else if (skipEvents.indexOf(evt) < 0) {
+			item.label = item['name'];
+			drawFns.push(this._prepareDraw(canvas, 'point', item));
+		}
+
+	}
+	canvas.height = this.spacing * this.barHeight * drawFns.length;
+
+	// setting canvas height resets font, has to be re-set
+	context.font = this.fontStyle;
+
+	var step = Math.round(this.barHeight * this.spacing);
+
+	//drawFns.forEach(function(draw) {
+		draw.call(this, context);
+		context.translate(0, step);
+	//}, this);
 }
 /**
  * Matches events with the section they belong to
