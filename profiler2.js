@@ -317,7 +317,7 @@ __Profiler.prototype._drawChart = function(canvas) {
 	context.font = this.fontStyle;
 
 	this._setUnit(canvas);
-	for (var j = 0, k = timingData.length; j < k; j++) {
+	for (var j = 0, k = this.timingData.length; j < k; j++) {
 		for (var i = 0, l = this.eventsOrder.length; i < l; i++) {
 			var evt = this.eventsOrder[i];
 	
