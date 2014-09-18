@@ -346,20 +346,18 @@ __Profiler.prototype._drawChart = function(canvas) {
 				drawFns.push(this._prepareDraw(canvas, 'point', item));
 			}
 
-
-	
-		canvas.height = this.spacing * this.barHeight * drawFns.length;
-	
-		// setting canvas height resets font, has to be re-set
-		context.font = this.fontStyle;
-	
-		var step = Math.round(this.barHeight * this.spacing);
-	
-		drawFns.forEach(function(draw) {
-			draw.call(this, context);
-			context.translate(0, step);
-		}, this);
-				}
+		}
+			canvas.height = this.spacing * this.barHeight * drawFns.length;
+		
+			// setting canvas height resets font, has to be re-set
+			context.font = this.fontStyle;
+		
+			var step = Math.round(this.barHeight * this.spacing);
+		
+			drawFns.forEach(function(draw) {
+				draw.call(this, context);
+				context.translate(0, step);
+			}, this);
 	}
 }
 /**
