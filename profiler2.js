@@ -442,6 +442,7 @@ __Profiler.prototype._getData = function() {
 	
 	    if (evt && evt > 0) {
 	      eventTime = evt + startTime;
+	      events[j]= {};
 	      events[j][eventNames[i]] = { time: eventTime };
 	
 	      if (eventTime > totalTime) {
