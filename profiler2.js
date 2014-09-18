@@ -337,7 +337,7 @@ __Profiler.prototype._drawChart = function(canvas) {
 			}
 	
 			if (isBlockStart && hasBlockEnd) {
-				item.label = timingData[j]['name'];//eventName;
+				item.label = item['name'];//eventName;
 				item.timeEnd = this.timingData[j][eventName + 'End'].time;
 				drawFns.push(this._prepareDraw(canvas, 'block', item));
 				skipEvents.push(eventName + 'End');
