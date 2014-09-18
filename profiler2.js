@@ -345,7 +345,7 @@ __Profiler.prototype._drawChart = function(canvas) {
 				item.label = item['name'];
 				drawFns.push(this._prepareDraw(canvas, 'point', item));
 			}
-		}
+
 
 	
 		canvas.height = this.spacing * this.barHeight * drawFns.length;
@@ -359,6 +359,7 @@ __Profiler.prototype._drawChart = function(canvas) {
 			draw.call(this, context);
 			context.translate(0, step);
 		}, this);
+				}
 	}
 }
 /**
