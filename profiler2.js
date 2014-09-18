@@ -297,6 +297,12 @@ __Profiler.prototype._drawBar = function(mode, canvas, barWidth, options) {
 		// event marker
 		context.fillStyle = 'rgb(' + color[0] + ',' + color[1] + ',' + color[2] + ')';
 		context.fillRect(Math.round(this.unit * start), 2, width, this.barHeight - 4);
+		
+		context.fillStyle = 'rgb(' + color[0] + ',' + color[1] + ',' + color[2] + ')';
+		context.fillRect(Math.round(this.unit * 5), 2, width, this.barHeight - 4);
+		
+		context.fillStyle = 'rgb(' + color[0] + ',' + color[1] + ',' + color[2] + ')';
+		context.fillRect(Math.round(this.unit * 6), 2, width, this.barHeight - 4);
 
 		// label
 		context.fillText(timeLabel, barWidth - this.textSpace + 10, 2 * this.barHeight / 3);
@@ -356,10 +362,10 @@ __Profiler.prototype._drawChart = function(canvas) {
 
 	var step = Math.round(this.barHeight * this.spacing);
 
-	//drawFns.forEach(function(draw) {
+	drawFns.forEach(function(draw) {
 		draw.call(this, context);
 		context.translate(0, step);
-	//}, this);
+	}, this);
 }
 /**
  * Matches events with the section they belong to
