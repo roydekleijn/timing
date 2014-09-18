@@ -441,10 +441,11 @@ __Profiler.prototype._getData = function() {
   for(var j = 0, k = timingData.length; j < k; j++) {
   	events[j]= {};
   	events[j]['name'] = timingData[j]['name'];
+  	events[j]['duration'] = timingData[j]['duration'];
 	  for(var i = 0, l = eventNames.length; i < l; i++) {
 	    var evt = timingData[j][eventNames[i]];
 	
-	    if (evt && evt > 0) {
+	    if ((evt && evt > 0) evt != 'duration') {
 	      eventTime = evt + startTime;
 	      
 	      events[j][eventNames[i]] = { time: eventTime };
@@ -467,7 +468,7 @@ __Profiler.prototype._getData = function() {
  */
 __Profiler.prototype._init = function() {
   this.timingData = this._getData();
-  this.sections = this._getSections();
+  //this.sections = this._getSections();
   this.container = this._createContainer();
 
   if (this.customElement) {
