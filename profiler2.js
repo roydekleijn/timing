@@ -426,7 +426,7 @@ __Profiler.prototype._getData = function() {
   }
   
   var data = window.performance;
-  var timingData = data.getEntriesByType('resource');
+  var timingData = data.timing;//getEntriesByType('resource');
   console.log(timingData);
   var eventNames = this._getPerfObjKeys(timingData);
   console.log(eventNames);
@@ -451,6 +451,7 @@ __Profiler.prototype._getData = function() {
 
   this.totalTime = totalTime;
     
+  console.log(events);  
   return events;
 }
 
