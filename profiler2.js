@@ -479,8 +479,8 @@ __Profiler.prototype._init = function() {
 
   var content;
 
-  if (this.timingData && this.sections.length) {
-    this._matchEventsWithSections();
+  if (this.timingData && this.sections.length) { // && this.sections.length
+    //this._matchEventsWithSections();
     content = this._createChart();
   } else {
     content = this._createNotSupportedInfo();
