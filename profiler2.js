@@ -429,6 +429,7 @@ __Profiler.prototype._getData = function() {
   var timingData = data.getEntriesByType('resource');
   console.log(timingData);
   var eventNames = this._getPerfObjKeys(timingData);
+  console.log(eventNames);
   var events = {};
 
   var startTime = timingData.navigationStart || 0;
