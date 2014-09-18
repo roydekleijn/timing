@@ -248,8 +248,8 @@ __Profiler.prototype._drawBar = function(mode, canvas, barWidth, options) {
 	var timeLabel;
 	var metrics;
 	var color = options.color;
-	var sectionStart = options.sectionTimeBounds[0];
-	var sectionStop = options.sectionTimeBounds[1];
+	//var sectionStart = options.sectionTimeBounds[0];
+	//var sectionStop = options.sectionTimeBounds[1];
 	var nameLabel = options.label;
 	var context = canvas.getContext('2d');
 
