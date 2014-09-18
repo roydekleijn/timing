@@ -296,13 +296,13 @@ __Profiler.prototype._drawBar = function(mode, canvas, barWidth, options) {
 
 		// event marker
 		// x, y, width, height
-		context.fillStyle = 'rgb(' + color[0] + ',' + color[1] + ',' + color[2] + ')';
+		context.fillStyle = 'blue';
 		context.fillRect(Math.round(this.unit * 6), 2, 650, this.barHeight - 4);
 		
-		context.fillStyle = 'rgb(' + color[0] + ',' + color[1] + ',' + color[2] + ')';
+		context.fillStyle = 'green';
 		context.fillRect(Math.round(this.unit * 1000), 2, 50, this.barHeight - 4);
 		
-		context.fillStyle = 'rgb(' + color[0] + ',' + color[1] + ',' + color[2] + ')';
+		context.fillStyle = 'red';
 		context.fillRect(Math.round(this.unit * 1600), 2, 100, this.barHeight - 4);
 
 		// label
