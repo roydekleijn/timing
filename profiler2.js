@@ -326,43 +326,43 @@ __Profiler.prototype._drawChart = function(canvas) {
 	context.font = this.fontStyle;
 
 	this._setUnit(canvas);
-	//for (var j = 0; j < this.eventSize; j++) {
+	for (var j = 0; j < this.eventSize; j++) {
 		var item;
-	for (var i = 0, l = this.eventsOrder.length; i < l; i++) {
-		var evt = this.eventsOrder[i];
-
-		if (!this.timingData[3].hasOwnProperty(evt)) {
-			continue;
-		}
-
-		item = this.timingData[3];
-		var startIndex = evt.indexOf('Start');
-		var isBlockStart = startIndex > -1;
-		var hasBlockEnd = false;
-
-		if (isBlockStart) {
-			eventName = evt.substr(0, startIndex);
-			hasBlockEnd = this.eventsOrder.indexOf(eventName + 'End') > -1;
-		}
-
-		/*
-		if (isBlockStart && hasBlockEnd) {
-			item.label = item['name'];
-			//eventName;
-			item.timeEnd = this.timingData[3][eventName + 'End'].time;
-			drawFns.push(this._prepareDraw(canvas, 'block', item));
-			skipEvents.push(eventName + 'End');
-		} else if (skipEvents.indexOf(evt) < 0) {
-			item.label = item['name'];
-			drawFns.push(this._prepareDraw(canvas, 'point', item));
-		}
-		*/
-
-	}
-	// NEW
-	item.label = item['name'];
-	drawFns.push(this._prepareDraw(canvas, 'block', item));
+		for (var i = 0, l = this.eventsOrder.length; i < l; i++) {
+			var evt = this.eventsOrder[i];
 	
+			if (!this.timingData[3].hasOwnProperty(evt)) {
+				continue;
+			}
+	
+			item = this.timingData[3];
+			var startIndex = evt.indexOf('Start');
+			var isBlockStart = startIndex > -1;
+			var hasBlockEnd = false;
+	
+			if (isBlockStart) {
+				eventName = evt.substr(0, startIndex);
+				hasBlockEnd = this.eventsOrder.indexOf(eventName + 'End') > -1;
+			}
+	
+			/*
+			if (isBlockStart && hasBlockEnd) {
+				item.label = item['name'];
+				//eventName;
+				item.timeEnd = this.timingData[3][eventName + 'End'].time;
+				drawFns.push(this._prepareDraw(canvas, 'block', item));
+				skipEvents.push(eventName + 'End');
+			} else if (skipEvents.indexOf(evt) < 0) {
+				item.label = item['name'];
+				drawFns.push(this._prepareDraw(canvas, 'point', item));
+			}
+			*/
+	
+		}
+		// NEW
+		item.label = item['name'];
+		drawFns.push(this._prepareDraw(canvas, 'block', item));
+	}
 	canvas.height = this.spacing * this.barHeight * drawFns.length;
 
 	// setting canvas height resets font, has to be re-set
