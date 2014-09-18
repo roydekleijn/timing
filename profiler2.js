@@ -216,7 +216,7 @@ __Profiler.prototype._prepareDraw = function(canvas, mode, eventData) {
 
 	var barOptions = {
 		color : [224, 84, 63],
-		sectionTimeBounds : [sectionData.startTime, sectionData.endTime],
+		//sectionTimeBounds : [sectionData.startTime, sectionData.endTime],
 		eventTimeBounds : [eventData.time, eventData.timeEnd],
 		label : eventData.label
 	}
