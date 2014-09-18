@@ -318,15 +318,15 @@ __Profiler.prototype._drawChart = function(canvas) {
 	context.font = this.fontStyle;
 
 	this._setUnit(canvas);
-	for (var j = 0; j < this.eventSize; j++) {
+	//for (var j = 0; j < this.eventSize; j++) {
 		for (var i = 0, l = this.eventsOrder.length; i < l; i++) {
 			var evt = this.eventsOrder[i];
 	
-			if (!this.timingData[j].hasOwnProperty(evt)) {
+			if (!this.timingData[4].hasOwnProperty(evt)) {
 				continue;
 			}
 	
-			var item = this.timingData[j];
+			var item = this.timingData[4];
 			var startIndex = evt.indexOf('Start');
 			var isBlockStart = startIndex > -1;
 			var hasBlockEnd = false;
@@ -338,7 +338,7 @@ __Profiler.prototype._drawChart = function(canvas) {
 	
 			if (isBlockStart && hasBlockEnd) {
 				item.label = item['name'];//eventName;
-				item.timeEnd = this.timingData[j][eventName + 'End'].time;
+				item.timeEnd = this.timingData[4][eventName + 'End'].time;
 				drawFns.push(this._prepareDraw(canvas, 'block', item));
 				skipEvents.push(eventName + 'End');
 			} else if (skipEvents.indexOf(evt) < 0) {
@@ -358,7 +358,6 @@ __Profiler.prototype._drawChart = function(canvas) {
 				draw.call(this, context);
 				context.translate(0, step);
 			}, this);
-	}
 }
 /**
  * Matches events with the section they belong to
